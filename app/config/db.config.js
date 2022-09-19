@@ -1,6 +1,6 @@
 const { Pool } = require("pg");
 const env = require('./env.js');
-const {setCurrentSchema} = require('../repository/incident.repository')
+
 
 const pool = new Pool({
     user: env.user || 'postgres',

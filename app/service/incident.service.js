@@ -1,6 +1,7 @@
 const { runQuery } = require('../config/db.config');
 const axios = require('axios').default;
 const { getIncidentReports, createIncidentReport } = require('../repository/incident.repository')
+const env = require('./env.js');
 
 const getIncidentReport = async () => {
     const result = await runQuery(getIncidentReports);
@@ -25,7 +26,7 @@ const createIncident = async (payload) => {
 
 async function axiosGetCoordinates(city) {
     try {
-        const data = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},GH&appid=be314f9789143894a9723a40164118fd`);
+        const data = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},GH&appid=${env.openweatherAPI}`);
         return { lat, lon } = data.data[0]
     } catch (error) {
         console.log(error);
@@ -34,7 +35,7 @@ async function axiosGetCoordinates(city) {
 
 async function axiosWeatherReport(lat, lon) {
     try {
-        const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=be314f9789143894a9723a40164118fd`);
+        const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${env.openweatherAPI}`);
         return data.data;
     } catch (error) {
         console.log(error);

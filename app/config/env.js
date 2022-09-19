@@ -1,10 +1,11 @@
 const env = {
-    user: 'postgres',
-    database: 'postgres',
-    password: 'baeBoo23',
-    port: 5432,
-    host: 'localhost',
-    dialect: 'postres'
+    user: 'user',
+    database: 'database',
+    password: 'xxxxxxxxx',
+    port: 'port',
+    host: 'host',
+    dialect: 'postres',
+    openweatherAPI: 'OPEN_WEATHER_API'
 }
 
 exports.module =env
