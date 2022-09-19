@@ -1,7 +1,7 @@
 const { runQuery } = require('../config/db.config');
 const axios = require('axios').default;
 const { getIncidentReports, createIncidentReport } = require('../repository/incident.repository')
-const env = require('./env.js');
+const env = require('../config/env');
 
 const getIncidentReport = async () => {
     const result = await runQuery(getIncidentReports);

@@ -3,9 +3,9 @@ const env = require('./env.js');
 
 
 const pool = new Pool({
-    user: env.user || 'postgres',
+    user: env.user,
     database: env.database,
-    password: 'baeBoo23',
+    password: env.password,
     port: env.port,
     host: env.host
 });
